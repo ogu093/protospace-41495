@@ -27,7 +27,11 @@ development:
 test:
   <<: *default
   adapter: postgresql
- url: <%= ENV['DATABASE_URL'] %>
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
+  database: ajax_app_rails7_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -51,6 +55,5 @@ test:
 #
 production:
   <<: *default
-  database: protospace_41495_production
-  username: protospace_41495
-  password: <%= ENV["PROTOSPACE_41495_DATABASE_PASSWORD"] %>
+   adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
